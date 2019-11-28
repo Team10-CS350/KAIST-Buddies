@@ -5,9 +5,15 @@ public class Message {
     private String content;
     private Date createdDate;
     private User author;
-    private Channel channel;
     private Boolean deleted;
-    private File attachment;
+
+    public Message (User sender, String message) {
+        id = getNewMessageId();
+        content = message;
+        createdDate = new Date();
+        author = sender;
+        deleted = false;
+    }
 
     public void delete() {
         deleted = true;
@@ -18,15 +24,10 @@ public class Message {
     public String getContent() {
         return content;
     }
-
-    public Date getDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
-    public Channel getChannel() {
-        return channel;
-    }
-    public File getAttachment() {
-        return attachment;
-    }
+
+    public int getNewMessageId() { return 0;} //FixMe
 
 }

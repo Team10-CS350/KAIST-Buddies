@@ -1,17 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/background2"
         tools:context=".EventBoardActivity">
 
     <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="TextView"
-            tools:layout_editor_absoluteX="76dp"
-            tools:layout_editor_absoluteY="36dp" >
+            android:id="@+id/eventBoardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Events"
+            android:textSize="30dp"
+            android:textStyle="italic"
+            android:layout_centerHorizontal="true">
     </TextView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+            android:id="@+id/event1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/eventBoardTitle"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="20sp"
+            android:background="@android:color/darker_gray"
+            android:gravity="start"
+            android:text="event1"
+            android:textAlignment="textStart"></Button>
+
+    <Button
+            android:id="@+id/event2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@id/event1"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10sp"
+            android:text="event2"
+            android:textAlignment="textStart"
+            android:gravity="start"
+            >
+    </Button>
+
+    <Button
+            android:id="@+id/event3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@id/event2"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10sp"
+            android:text="event3"
+            android:textAlignment="textStart"
+            android:gravity="start"
+            >
+    </Button>
+
+    <Button
+            android:id="@+id/event4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@id/event3"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10sp"
+            android:text="event4"
+            android:textAlignment="textStart"
+            android:gravity="start"
+            >
+    </Button>
+
+    <Button
+            android:id="@+id/event5"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@id/event4"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10sp"
+            android:text="event5"
+            android:textAlignment="textStart"
+            android:gravity="start"
+            >
+    </Button>
+
+    <ImageView
+            android:id="@+id/addEvent"
+            android:layout_width="106dp"
+            android:layout_height="71dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            app:srcCompat="@android:drawable/ic_input_add" />
+</RelativeLayout>

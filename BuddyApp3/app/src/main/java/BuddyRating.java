@@ -1,13 +1,16 @@
 public class BuddyRating {
 
     private String feedback;
-    private int rate;
-    public int getRartings(){
-       return rate;
-    }
-    public BuddyRating(String feedback, int rate){
-        this.rate = rate;
+    private int rating;
+
+    public BuddyRating(int rate, String feedback){
+        this.rating = rate;
         this.feedback = feedback;
     }
+
+    public int getRating(){
+       return rating;
+    }
+    public String getFeedback() { return feedback; }
 
 }

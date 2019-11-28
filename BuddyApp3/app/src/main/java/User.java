@@ -5,7 +5,19 @@ public class User {
     private String name;
     private String email;
     private boolean buddy;
-    private int rating;
+    private List<Integer> ratings;
+
+
+    public User(String name, String email, boolean isBuddy){
+        this.name = name;
+        this.email = email;
+        this.buddy = isBuddy;
+        Date curDate = new Date();
+        this.createDate = curDate;
+        this.id = 0; //FixMe: How to create an id for a user
+        this.ratings = new ArrayList<Integer>(); //FixMe: Should this be initialized
+    }
+
 
     public String getName()
     {
@@ -15,22 +27,37 @@ public class User {
     {
         return email;
     }
-    public int getRate()
-    {
-        return rating;
+    public double getRating() {
+        return calculateAverage(ratings);
     }
     public Boolean isBuddy()
     {
         return buddy;
     }
-    public User(String name, String email, boolean isBuddy){
-        this.name = name;
-        this.email = email;
-        this.buddy = isBuddy;
-        Date curDate = new Date();
-        this.createDate = curDate;
-        this.id = 0; //ToDo: How to create an id for a user
-        this.rating = 0; //ToDo: Should this be initialized
+    public void subscribeToEvent (Event event) {
+        event.getParticipants().add(this);
+    }
+    public void sendMessage(Event event, String messageString) {
+        Message message = new Message(this, messageString);
+        event.getChannel().appendMessage(message);
     }
 
+    public void deleteMessage(Event event, Message message) {
+        message.delete();
+        event.getChannel().removeMessage(message);
+    }
+    public void updateRating(int rating) {
+        ratings.add(rating);
+    }
+
+    private double calculateAverage(List<Integer> ratings) {
+        Integer total = 0;
+        if(!ratings.isEmpty()) {
+            for (Integer rating : ratings) {
+                total += rating;
+            }
+            return total.doubleValue() / ratings.size();
+        }
+        return total;
+    }
 }
