@@ -1,5 +1,7 @@
+package com.example.buddyapp3;
+
 import java.util.*;
-import java.io.*;
+
 public class Message {
     private int id;
     private String content;

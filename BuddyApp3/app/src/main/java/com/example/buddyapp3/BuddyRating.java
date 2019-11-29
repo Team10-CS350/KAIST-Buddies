@@ -1,3 +1,5 @@
+package com.example.buddyapp3;
+
 public class BuddyRating {
 
     private String feedback;

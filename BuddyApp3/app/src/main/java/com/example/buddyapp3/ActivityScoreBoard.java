@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
-public class EventBoardActivity extends AppCompatActivity {
+public class ActivityScoreBoard extends AppCompatActivity {
 
     private ImageView addEvent;
 
@@ -21,7 +21,7 @@ public class EventBoardActivity extends AppCompatActivity {
         addEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toastThis("adding new Event");
+                toastThis("adding new com.example.BuddyAppFrontEnd.Event");
             }
         });
 

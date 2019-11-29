@@ -10,11 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class ActivityMain extends AppCompatActivity {
     private TextView registerLink;
     private Button logInButton;
-    private EditText email;
-    private EditText password;
+    private EditText email, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         registerLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                Intent i = new Intent(MainActivity.this,subscription.class);
+                Intent i = new Intent(ActivityMain.this, ActivitySubscription.class);
                 startActivity(i);
             }
         });
@@ -37,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
                 email = (EditText) findViewById(R.id.enterEmail);
                 password = (EditText) findViewById(R.id.enterPassword);
 
-                if (email.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
-                    Intent i = new Intent(MainActivity.this, EventBoardActivity.class);
-                    startActivity(i);
-                } else {
-                    toastThis ("log in failed");
-                }
-
+                if (DemoServer.checkIfEmailExists(email.getText().toString())) {
+                    User currentUser = DemoServer.getUserFromEmail(email.getText().toString());
+                    if (currentUser.passwordMatches(password.getText().toString())) {
+                        Intent i = new Intent(ActivityMain.this, ActivityScoreBoard.class);
+                        startActivity(i);
+                    } else toastThis ("password does not match");
+                } else toastThis ("user is not registered");
             }
         });
     }

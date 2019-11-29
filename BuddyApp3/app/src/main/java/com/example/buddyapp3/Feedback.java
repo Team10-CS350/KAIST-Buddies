@@ -1,3 +1,5 @@
+package com.example.buddyapp3;
+
 public class Feedback {
     private String comment;
     private User author;

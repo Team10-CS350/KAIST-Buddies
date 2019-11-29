@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background2"
-        tools:context=".subscription">
+        tools:context=".ActivitySubscription">
 
     <TextView
             android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
             android:inputType="textPassword"
             android:layout_below="@+id/rEmailInput"
             android:layout_marginLeft="14dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="7dp"
             android:layout_toRightOf="@id/rPasswordField"
             android:hint="password">
 
@@ -115,7 +115,7 @@
             android:layout_height="40sp"
             android:layout_below="@+id/rPasswordInput"
             android:layout_marginLeft="14dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="7sp"
             android:inputType="textPassword"
             android:layout_toRightOf="@id/rRepeatPasswordField"
             android:hint="password">
@@ -123,14 +123,29 @@
 
     </EditText>
 
+    <CheckBox
+            android:id="@+id/buddyCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/rRepeatPasswordField"
+            android:textSize="17dp"
+            android:textColor='@color/colorPrimaryDark'
+
+            android:text="Check if you are a Korean buddy" />
+
     <Button
             android:id="@+id/submitRegistration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/rRepeatPasswordField"
+            android:layout_below="@+id/buddyCheckBox"
             android:layout_marginTop="15sp"
-            android:text="subscribe"
+            android:text="Submit Registration"
             android:textSize="15sp">
 
     </Button>
+
+
+
 </RelativeLayout>

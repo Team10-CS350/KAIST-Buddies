@@ -1,3 +1,5 @@
+package com.example.buddyapp3;
+
 import java.util.*;
 
 enum EventType
@@ -14,12 +16,23 @@ public class Event {
     private User author;
     private String title;
     private String description;
+    private Date eventDate;
     // ToDo: private image thumbnail;
-
     // The event channel is used to know event participants.
     private Channel channel;
-    private List<EventType> types;
+    private EventType type;
     private EventStatus status;
+
+    public Event(User authr, String ttl, String desc,Date date, EventType typ) {
+        id = 0; //FixMe
+        author = authr;
+        title = ttl;
+        description = desc;
+        eventDate = date;
+        channel = new Channel(this);
+        type = typ;
+        status = EventStatus.ACTIVE;
+    }
 
     public String getTitle() {
         return title;
@@ -31,6 +44,9 @@ public class Event {
         return description;
     }
     public List<User> getParticipants() { return channel.getUsers(); }
+    public Date getEventDate() {
+        return eventDate;
+    }
 
     /*
     public image getThumbnail() {

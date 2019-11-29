@@ -1,3 +1,5 @@
+package com.example.buddyapp3;
+
 import java.util.*;
 public class User {
     private int id;
@@ -6,12 +8,14 @@ public class User {
     private String email;
     private boolean buddy;
     private List<Integer> ratings;
+    private String password;
 
 
-    public User(String name, String email, boolean isBuddy){
+    public User(String name, String email, String paswrd, boolean isBuddy){
         this.name = name;
         this.email = email;
         this.buddy = isBuddy;
+        this.password = paswrd;
         Date curDate = new Date();
         this.createDate = curDate;
         this.id = 0; //FixMe: How to create an id for a user
@@ -34,12 +38,18 @@ public class User {
     {
         return buddy;
     }
+    public Boolean passwordMatches(String enteredPassword) {
+        return password.equals(enteredPassword);
+    }
     public void subscribeToEvent (Event event) {
         event.getParticipants().add(this);
     }
     public void sendMessage(Event event, String messageString) {
         Message message = new Message(this, messageString);
         event.getChannel().appendMessage(message);
+    }
+    public Event createEvent (String ttl, String desc,Date date, EventType typ) {
+        return new Event(this, ttl, desc, date, typ);
     }
 
     public void deleteMessage(Event event, Message message) {
