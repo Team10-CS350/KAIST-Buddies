@@ -61,6 +61,15 @@ public class ActivityMain extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+        android.os.Process.killProcess (android.os.Process.myPid());
+        System.exit(0);
+        return;
+    }
+
     public void toastThis(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
