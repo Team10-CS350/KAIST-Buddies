@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,7 @@ import android.widget.Toast;
 public class ActivityEventBoard extends AppCompatActivity {
     ListView listView;
     private ImageView addEvent;
+    private TextView logoutText;
     long backPressedTime;
     Boolean eventIsEmpty = true;
 
@@ -47,6 +50,19 @@ public class ActivityEventBoard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 toastThis("adding new event");
+            }
+        });
+
+        logoutText = findViewById(R.id.logoutText);
+        logoutText.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                SharedPreferences preferences = getSharedPreferences("status", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("userStatus", "loggedOut");
+                editor.apply();
+                Intent goToLogInPage = new Intent(ActivityEventBoard.this, ActivityMain.class);
+                startActivity(goToLogInPage);
             }
         });
 

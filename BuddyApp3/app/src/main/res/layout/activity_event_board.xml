@@ -33,4 +33,14 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             app:srcCompat="@android:drawable/ic_input_add" />
+
+    <TextView
+            android:id="@+id/logoutText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="18sp"
+            android:text="Log Out" />
 </RelativeLayout>
