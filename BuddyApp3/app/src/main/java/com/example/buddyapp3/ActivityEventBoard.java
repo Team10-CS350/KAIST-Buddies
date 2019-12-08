@@ -3,10 +3,14 @@ package com.example.buddyapp3;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -107,7 +111,13 @@ public class ActivityEventBoard extends AppCompatActivity {
             TextView title = row.findViewById(R.id.mainTitle);
             TextView description = row.findViewById(R.id.description);
 
-            image.setImageResource(rImages[position]);
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), rImages[position]);
+            RoundedBitmapDrawable roundedBitmap = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
+            roundedBitmap.setCircular(true);
+
+
+//            image.setImageResource(rImages[position]);
+            image.setImageDrawable(roundedBitmap);
             title.setText(rTitle[position]);
             description.setText(rDescription[position]);
 
